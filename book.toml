@@ -1,0 +1,28 @@
+[book]
+title = "Learning JAM"
+authors = ["PBA Alumni - Lucerne"]
+description = "A book about how to implement JAM"
+language = "en"
+multilingual = false
+src = "src"
+
+[build]
+build-dir = "book"
+create-missing = false # opt out of helper to create missing stub files, we want to fail if the SUMMARY is incorrect.
+
+[rust]
+edition = "2021"
+
+[output.html]
+site-url = "/book/" # needed for gh-pages, MUST match repo name on github!
+git-repository-url = "https://github.com/learningjam/book"
+edit-url-template = "https://github.com/learningjam/book/edit/main/{path}"
+
+[output.html.search]
+limit-results = 20
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 2
+boost-paragraph = 1
+expand = true
+heading-split-level = 2
