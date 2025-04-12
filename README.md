@@ -15,7 +15,7 @@ Its goal is twofold:
 1. To provide a detailed and accessible interpretation of the Gray Paper, clarifying the technical foundations and formal logic behind JAM.
 2. To teach readers how to develop JAM programs in Rust, helping developers understand the execution model, data structures, and principles behind Polkadot 2.0.
 
-Whether you're a researcher trying to make sense of JAM’s formal semantics, or a developer aiming to build the next killer parachain, this book aims to bridge the theory and practice.
+Whether you're a researcher trying to make sense of JAM's formal semantics, or a developer aiming to build the next killer parachain, this book aims to bridge the theory and practice.
 
 ## Requirements
 
