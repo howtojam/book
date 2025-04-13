@@ -4,6 +4,20 @@
 
 This document introduces a decentralized, crypto-economic protocol representing a major revision of the Polkadot Network. Originally proposed in RFC-31 under the name *CoreJam*, the finalized version is called *Jam*, a complete blockchain protocol based on the collect/refine/join/accumulate model of computation.
 
+This protocol, **Jam**, combines ideas from both **Ethereum** and **Polkadot**:
+
+- From **Polkadot**, it inherits shared security and validator-based crypto-economics.
+- From **Ethereum**, it adopts a unified, composable computation model like the EVM.
+
+Jam blends these to create a scalable yet coherent execution environment.
+
+### In-Core vs On-Chain
+
+- **In-Core**: Computation inside the validator’s runtime; fast but not always globally visible.
+- **On-Chain**: State and logic stored on the blockchain; verifiable and shared by all.
+
+Jam aims to balance in-core performance with on-chain trust and coherence.
+
 ## 1.2. Driving Factors
 
 The primary objective in Web3 is **resilience**. A system should uphold its service guarantees regardless of adversarial economic actors. This requires the system to be effectively **unstoppable**.
