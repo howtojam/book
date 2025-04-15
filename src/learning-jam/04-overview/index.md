@@ -24,10 +24,10 @@ Extrinsic data (`E`):
 `E ≡ (E_T , E_D , E_P, E_A, E_G)`
 
 - `E_T`: *Tickets.* Used for the selection of validators
-- `E_P`: *Preimages*. Requested static data
-- `E_G`: *Reports*. Validated workload reports guaranteed by validators
-- `E_A`: *Availability*. Input data availability confirmations
 - `E_D`: *Disputes*. Validator dispute data
+- `E_P`: *Preimages*. Requested static data
+- `E_A`: *Availability*. Input data availability confirmations
+- `E_G`: *Reports*. Validated workload reports guaranteed by validators
 
 ## 4.2. The state
 
@@ -37,18 +37,18 @@ The global state `σ` is composed of several independent segments, enabling para
 
 Each segment has a specific purpose:
 
-- `δ`: Services (equivalent to "accounts" in the Ethereum Yellow Paper).
-- `χ`: Privileged service identities.
-- `κ`, `λ`, `ι`: Validators — currently active, archived, and enqueued.
-- `γ`: Other state relate to the validator key selection logic.
-- `η`: On-chain entropy pool.
 - `α`, `φ`: Core authorization rules and queues.
-- `ρ`: Assigned core reports and their availability.
 - `β`: Recent block metadata.
+- `γ`: Other state relate to the validator key selection logic.
+- `δ`: Services (equivalent to "accounts" in the Ethereum Yellow Paper).
+- `η`: On-chain entropy pool.
+- `ι`, `κ`, `λ`, : Validators — enqueued, currently active, and archived.
+- `ρ`: Assigned core reports and their availability.
 - `τ`: Timeslot index (based on Jam Common Era).
-- `ϑ`, `ξ`: Work reports prepared for or already accumulated.
+- `χ`: Privileged service identities.
 - `ψ`: Judgments from validators.
 - `π`: Validator performance statistics.
+- `ϑ`, `ξ`: Work reports prepared for or already accumulated.
 
 ### 4.2.1. State Transition Dependency Graph
 
