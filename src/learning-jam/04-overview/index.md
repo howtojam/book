@@ -120,3 +120,87 @@ The **best block** is the one most likely to remain in the canonical chain.
 - For low-latency needs (e.g. block authorship or state queries), we may prefer the **head of the best chain**, even if not finalized.
 
 This trade-off balances **certainty vs. recency**, depending on the use case.
+
+## 4.6. Economics
+
+Jam defines a native **token** used to express economic incentives.
+
+- A **balance** is an amount of tokens:  
+  `ℕ_B ≡ ℕ_{2^64}` (i.e. max ~18 billion tokens)
+- Tokens are divisible into units of `10^-9`.
+
+Jam assumes several fixed prices (in tokens):
+
+- `𝔅_I`: Minimum balance per mapping item  
+- `𝔅_L`: Minimum balance per octet in a mapping  
+- `𝔅_S`: Minimum balance for a service
+
+Note: Jam uses a different denomination than Ethereum, Polkadot, or Kusama.
+
+## 4.7. Virtual Machine and Gas
+
+Jam introduces the **Polka Virtual Machine (PVM)** — a simplified, blockchain-focused version of the RISC-V `RV64EM` instruction set.
+
+### Key Characteristics
+
+- Inspired by RISC-V: compatible with existing tooling (e.g. LLVM, Rust, C++).
+- Simpler than Ethereum’s EVM: no cryptographic or environmental opcodes.
+- 13 general-purpose 64-bit registers.
+- Paged memory: 32-bit addressable, 4KB pages marked as read/write/none.
+
+### Gas
+
+- Computation is bounded by **gas** (64-bit unsigned integer).
+- Execution function `Ψ(...)` ensures runtime is proportional to gas consumed.
+- Program may halt due to:
+  - `halt`: normal termination
+  - `panic`: runtime error
+  - `oog`: out-of-gas
+  - `fault`: invalid memory access
+  - `host`: external call requested
+
+PVM allows efficient and safe off-chain computation with deterministic outcomes usable in consensus.
+
+## 4.8. Epochs and Slots
+
+Jam uses a **proof-of-authority** consensus model, with validators selected via a staking mechanism (not detailed here).
+
+Time is divided into:
+
+- **Epochs**: fixed periods of 1 hour
+- **Slots**: each epoch contains 600 slots, each lasting **6 seconds**
+
+This setup is managed by the **Safrole** mechanism, which minimizes forks by tightly controlling block production timing.
+
+- Slot index (`ℕ_T`) counts 6-second intervals since the **Jam Common Era**
+- `ℕ_T` uses 32-bit unsigned integers, allowing protocol operation until ~year 2840
+
+## 4.9. Core Model and Services
+
+Jam introduces a more scalable alternative to Ethereum’s on-chain model by separating execution into two modes:
+
+### In-core Consensus
+
+- Only a **subset of validators** executes a given workload.
+- Allows **parallel computation**, enabling ~300x more throughput than single-node models.
+- Ensures correctness and availability through a 3-stage crypto-economic game:
+  - **Guaranteeing** (economic stake)
+  - **Assuring** (data availability)
+  - **Auditing/Judging** (optional, for verification)
+
+Execution is **stateless** and tied to a finalized block called the **lookup-anchor**.
+
+### Service Accounts
+
+- All accounts in Jam are **service accounts** with associated code, state, and balance.
+- Each service has two code entry points:
+  - **Refinement**: fast, off-chain (in-core), for preprocessing input data.
+  - **Accumulation**: slow, on-chain, for executing stateful logic like balance transfers.
+
+### Payment and Coretime
+
+- Jam replaces Ethereum’s gas model with **coretime**:
+  - A resource pre-purchased and assigned to an **authorization agent**.
+  - Decouples blockspace purchase from identity (no "transactor" needed).
+
+This model enhances scalability and flexibility while maintaining economic security.
