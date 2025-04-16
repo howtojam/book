@@ -1,4 +1,4 @@
-# Learning JAM
+# How To JAM
 
 ![Logo JAM](./img/logo-jam.png)
 
@@ -66,6 +66,6 @@ mdbook test
 
 ## Contributing
 
-Learning JAM is a community-driven effort. If you find errors, unclear explanations, or have suggestions, we encourage you to open an issue or submit a pull request.
+How To JAM is a community-driven effort. If you find errors, unclear explanations, or have suggestions, we encourage you to open an issue or submit a pull request.
 
 If your contribution is significant or structural, please open an issue beforehand so we can discuss the direction together.

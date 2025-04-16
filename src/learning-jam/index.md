@@ -1,1 +1,1 @@
-# Learning JAM
+# How To JAM
