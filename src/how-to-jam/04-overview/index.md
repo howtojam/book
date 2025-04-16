@@ -85,7 +85,7 @@ W^* ≺ (E_A, ρ′)
 
 The blockchain is a chain of blocks, each pointing to a previous one, starting from a known genesis block.
 
-A block’s **state** is deterministically derived from its parent, forming a **canonical state**. The block with the most ancestors is called the **head**.
+A block's **state** is deterministically derived from its parent, forming a **canonical state**. The block with the most ancestors is called the **head**.
 
 ### Forks
 
@@ -144,7 +144,7 @@ Jam introduces the **Polka Virtual Machine (PVM)** — a simplified, blockchain-
 ### Key Characteristics
 
 - Inspired by RISC-V: compatible with existing tooling (e.g. LLVM, Rust, C++).
-- Simpler than Ethereum’s EVM: no cryptographic or environmental opcodes.
+- Simpler than Ethereum's EVM: no cryptographic or environmental opcodes.
 - 13 general-purpose 64-bit registers.
 - Paged memory: 32-bit addressable, 4KB pages marked as read/write/none.
 
@@ -177,7 +177,7 @@ This setup is managed by the **Safrole** mechanism, which minimizes forks by tig
 
 ## 4.9. Core Model and Services
 
-Jam introduces a more scalable alternative to Ethereum’s on-chain model by separating execution into two modes:
+Jam introduces a more scalable alternative to Ethereum's on-chain model by separating execution into two modes:
 
 ### In-core Consensus
 
@@ -199,7 +199,7 @@ Execution is **stateless** and tied to a finalized block called the **lookup-anc
 
 ### Payment and Coretime
 
-- Jam replaces Ethereum’s gas model with **coretime**:
+- Jam replaces Ethereum's gas model with **coretime**:
   - A resource pre-purchased and assigned to an **authorization agent**.
   - Decouples blockspace purchase from identity (no "transactor" needed).
 
